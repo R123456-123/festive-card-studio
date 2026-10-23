@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "Celebrate festivals",
+  "Celebrating Festivals of Bharat",
   "त्योहार मनाइए",
   "উৎসব উদযাপন করুন",
   "सण साजरे करा",
