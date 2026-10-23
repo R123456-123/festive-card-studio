@@ -1,15 +1,6 @@
 import { useEffect, useState } from "react";
 
-const phrases = [
-  "Celebrating Festivals of Bharat",
-  "त्योहार मनाइए",
-  "উৎসব উদযাপন করুন",
-  "सण साजरे करा",
-  "திருவிழாவைக் கொண்டாடுங்கள்",
-  "పండుగను జరుపుకోండి",
-  "તહેવાર ઉજવો",
-  "ಹಬ್ಬವನ್ನು ಆಚರಿಸಿ",
-];
+const phrase = "Celebrating Festivals of Bharat";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -19,17 +10,9 @@ function Firefly() {
 }
 
 function App() {
-  const [phraseIndex, setPhraseIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setPhraseIndex((current) => (current + 1) % phrases.length);
-    }, 2400);
-    return () => window.clearInterval(timer);
-  }, []);
 
   async function submitWaitlist(event) {
     event.preventDefault();
@@ -68,7 +51,7 @@ function App() {
         <a className="brand" href="#home">
           <strong>festive<span>♡</span></strong>
           <em>|</em>
-          <small key={phraseIndex}>{phrases[phraseIndex]}</small>
+          <small>{phrase}</small>
         </a>
         <a className="nav-waitlist" href="#waitlist">Join the waitlist <span>↗</span></a>
         <Firefly />
