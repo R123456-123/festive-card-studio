@@ -1,0 +1,38 @@
+export const festivals = [
+  {
+    id: "karwa-chauth-2026",
+    name: "Karwa Chauth",
+    dateISO: "2026-10-29",
+    date: "29 October 2026",
+    status: "live",
+    label: "Now celebrating",
+    description: "For the love that waits for the moon.",
+  },
+  {
+    id: "dhanteras-2026",
+    name: "Dhanteras",
+    dateISO: "2026-11-06",
+    date: "6 November 2026",
+    status: "upcoming",
+    label: "Coming next",
+    description: "A little more light, prosperity, and warmth.",
+  },
+  {
+    id: "diwali-2026",
+    name: "Diwali",
+    dateISO: "2026-11-08",
+    date: "8 November 2026",
+    status: "upcoming",
+    label: "Coming soon",
+    description: "The festival of lights, made personal.",
+  },
+  {
+    id: "bhai-dooj-2026",
+    name: "Bhai Dooj",
+    dateISO: "2026-11-11",
+    date: "11 November 2026",
+    status: "upcoming",
+    label: "Coming soon",
+    description: "Celebrate the bond that always comes home.",
+  },
+];

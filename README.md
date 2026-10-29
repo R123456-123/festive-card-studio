@@ -1,10 +1,10 @@
 # Festive Card Studio
 
-Festive Card Studio is a polished React/Vite waitlist landing page for a future festive card experience. It uses a supplied artwork background, a responsive landing page, a rotating multilingual brand line, and Supabase-backed email collection.
+Festive Card Studio is a React/Vite festive experience beginning with Karwa Chauth 2026. The first release includes a responsive landing page, an accessible video hero, a data-driven upcoming-festivals section, and Supabase-backed early-access collection for the card studio.
 
 ## Current product state
 
-The public site is intentionally in **waitlist mode**. The card maker and other product surfaces are disabled while the launch list is collected.
+The public site is ready for the **Karwa Chauth 2026 v1 release**. It includes a live card studio with personalized cards, social formats, PNG export, WhatsApp sharing fallback, X promotion sharing, and a Supabase-backed early-access list.
 
 ## Project structure
 
@@ -14,6 +14,10 @@ festive-card-studio/
 ├── supabase/          # Database schema and RLS policy
 └── backend/           # Legacy FastAPI caption endpoint
 ```
+
+The frontend keeps festival content in [`frontend/src/data/festivals.js`](./frontend/src/data/festivals.js), while the landing experience and reusable sections currently live in [`frontend/src/App.jsx`](./frontend/src/App.jsx). The Karwa Chauth video is bundled from `frontend/videos/` so Vite fingerprints it during production builds. The card studio supports Post, Story, Postcard, and Ticket formats, personalized PNG downloads, clipboard image copy, and WhatsApp sharing with a reliable download-and-attach fallback. The hero includes personalized X promotion artwork sharing.
+
+The 2026 dates currently shown are Karwa Chauth (29 October), Dhanteras (6 November), Diwali (8 November), and Bhai Dooj (11 November). Local observance and moonrise timings can vary by location and tradition.
 
 ## Supabase setup
 
@@ -35,17 +39,19 @@ Never expose a Supabase service-role key, database password, or other secret in 
 ## Run locally
 
 ```powershell
-cd C:\Users\ABC\Desktop\WinterArcher\festive-card-studio\frontend
+cd C:\Users\ABC\Desktop\WinterArcher\festive-card-studio
 npm install
 npm run dev
 ```
 
 Open the Vite URL shown in the terminal, usually `http://localhost:5173`.
 
+The npm scripts at the project root forward to the Vite app in `frontend/`. You can also run the frontend directly with `cd frontend; npm run dev`.
+
 ## Production build
 
 ```powershell
-cd C:\Users\ABC\Desktop\WinterArcher\festive-card-studio\frontend
+cd C:\Users\ABC\Desktop\WinterArcher\festive-card-studio
 npm run build
 npm run preview
 ```
@@ -58,6 +64,7 @@ For Vercel:
 - Build command: `npm run build`.
 - Output directory: `dist`.
 - Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as production environment variables.
+- Deploy from the `frontend` directory, or configure the project root as `frontend`; the root npm scripts are intended for local development and root-level builds.
 
 ## GitHub publishing
 
@@ -72,7 +79,7 @@ git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
 git push -u origin main
 ```
 
-The repository intentionally ignores local `.env` files, virtual environments, `node_modules`, and Vite build output.
+The repository intentionally ignores local `.env` files, virtual environments, `node_modules`, and Vite build output. The public Supabase anon key is safe to use in the frontend only with the included RLS policy; never add a service-role key.
 
 ## Validation
 
@@ -83,4 +90,4 @@ npm audit
 npm run build
 ```
 
-The current frontend dependency audit reports zero vulnerabilities.
+The current frontend dependency audit reports zero vulnerabilities when `npm audit` is run from `frontend`.
